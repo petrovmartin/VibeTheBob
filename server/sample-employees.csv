@@ -1,0 +1,5 @@
+firstName,lastName,middleName,displayName,email,position,address,site,managerId,startDate,endDate,department,picture,isAdmin
+John,Doe,,John Doe,john.doe@vibethebob.com,Senior Developer,"123 Main St, City",HQ,,2025-01-01,,Engineering,,false
+Jane,Smith,Marie,Jane Smith,jane.smith@vibethebob.com,Team Lead,"456 Oak Ave, City",HQ,,2024-06-15,,Engineering,,true
+Bob,Johnson,,Bob Johnson,bob.johnson@vibethebob.com,Developer,"789 Pine St, City",Branch1,,,2025-12-31,Engineering,,false
+Alice,Williams,,Alice Williams,alice.williams@vibethebob.com,Product Manager,"321 Elm St, City",HQ,,2024-03-01,,Product,,true 

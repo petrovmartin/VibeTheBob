@@ -1,0 +1,9 @@
+firstName,middleName,lastName,displayName,email,position,address,site,managerEmail,startDate,endDate,department,picture,isAdmin
+John,,Maxwell,John Maxwell,john.maxwell@vibethebob.com,CEO,100 Executive Blvd City,HQ,,2024-01-01,,Executive,,true
+Sarah,,Johnson,Sarah Johnson,sarah.johnson@vibethebob.com,Engineering Director,789 Pine St City,HQ,john.maxwell@vibethebob.com,2024-02-01,,Engineering,,true
+Michael,Wei,Chen,Michael Chen,michael.chen@vibethebob.com,Engineering Manager,456 Maple Ave City,HQ,sarah.johnson@vibethebob.com,2024-03-15,,Engineering,,true
+Emily,,Martinez,Emily Martinez,emily.martinez@vibethebob.com,Senior Developer,123 Oak St City,Branch1,michael.chen@vibethebob.com,2024-04-01,,Engineering,,false
+Alex,,Thompson,Alex Thompson,alex.thompson@vibethebob.com,Developer,321 Cedar St City,Branch1,michael.chen@vibethebob.com,2024-04-15,,Engineering,,false
+David,,Smith,David Smith,david.smith@vibethebob.com,Product Director,567 Elm St City,HQ,john.maxwell@vibethebob.com,2024-02-15,,Product,,true
+Lisa,,Wang,Lisa Wang,lisa.wang@vibethebob.com,Product Manager,890 Birch St City,HQ,david.smith@vibethebob.com,2024-03-01,,Product,,true
+James,,Wilson,James Wilson,james.wilson@vibethebob.com,Product Analyst,432 Oak St City,HQ,lisa.wang@vibethebob.com,2024-05-01,,Product,,false 

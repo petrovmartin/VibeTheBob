@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Employee {
+  id            String     @id @default(uuid())
+  firstName     String     @db.VarChar(50)
+  middleName    String?    @db.VarChar(50)
+  lastName      String     @db.VarChar(50)
+  displayName   String     @db.VarChar(150)
+  email         String     @unique @db.VarChar(255)
+  password      String     @db.VarChar(255)
+  position      String     @db.VarChar(100)
+  address       String     @db.VarChar(255)
+  site          String     @db.VarChar(100)
+  managerId     String?
+  startDate     DateTime   @db.Timestamptz
+  endDate       DateTime?  @db.Timestamptz
+  department    String     @db.VarChar(100)
+  picture       String?    @db.VarChar(255) // URL to the picture
+  createdAt     DateTime   @default(now()) @db.Timestamptz
+  createdBy     String     @db.VarChar(100)
+  updatedAt     DateTime   @updatedAt @db.Timestamptz
+  updatedBy     String     @db.VarChar(100)
+  isAdmin       Boolean    @default(false)
+  csrfToken     String?    @db.VarChar(255)
+  lastLogin     DateTime?  @db.Timestamptz
+
+  @@index([email])
+  @@index([department])
+  @@index([managerId])
+}
