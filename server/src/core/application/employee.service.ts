@@ -4,10 +4,12 @@ import { Employee } from '../domain/employee.entity';
 import { CreateEmployeeDto } from '../../presentation/contracts/create-employee.dto';
 import { parse } from 'csv-parse/sync';
 import { Prisma } from '@prisma/client';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class EmployeeService {
   private readonly logger = new Logger(EmployeeService.name);
+  private readonly SALT_ROUNDS = 10;
 
   constructor(private prisma: PrismaService) {}
 
@@ -246,9 +248,14 @@ export class EmployeeService {
             this.logger.debug(`Creating employee with email: ${dto.email}`);
             const { managerEmail, ...employeeData } = dto;
             
+            // Generate a default password (you might want to change this in production)
+            const defaultPassword = 'changeme123';
+            const hashedPassword = await bcrypt.hash(defaultPassword, this.SALT_ROUNDS);
+            
             const employee = await prisma.employee.create({
               data: {
                 ...employeeData,
+                password: hashedPassword,
                 managerId: null, // Initially set to null
                 createdBy: userId,
                 updatedBy: userId

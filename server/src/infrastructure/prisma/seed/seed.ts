@@ -3,9 +3,11 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { Logger } from '@nestjs/common';
 import { parse } from 'csv-parse/sync';
+import * as bcrypt from 'bcrypt';
 
 const prisma = new PrismaClient();
 const logger = new Logger('DatabaseSeeder');
+const SALT_ROUNDS = 10;
 
 interface EmployeeCSV {
   firstName: string;
@@ -97,7 +99,8 @@ export async function seed() {
             isAdmin: recordData.isAdmin === 'true',
             managerId: null,
             createdBy: 'system-seeder',
-            updatedBy: 'system-seeder'
+            updatedBy: 'system-seeder',
+            password: await bcrypt.hash('changeme123', SALT_ROUNDS) // Default password for seeded users
           };
           
           const employee = await tx.employee.create({
